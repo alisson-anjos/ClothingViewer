@@ -1,0 +1,702 @@
+{
+  "10": {
+    "inputs": {
+      "model": "moondream:1.8b (Q4, 1.7GB)",
+      "custom_model": "",
+      "api_host": "http://localhost:11434",
+      "timeout": 300,
+      "temperature": 0.2,
+      "seed_number": 42,
+      "max_tokens": 200,
+      "keep_model_alive": -1,
+      "system_context": "",
+      "prompt": "describe the image",
+      "image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "OllamaImageDescriber",
+    "_meta": {
+      "title": "🦙 Ollama Image Describer 🦙"
+    }
+  },
+  "11": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "15": {
+    "inputs": {
+      "text": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "17": {
+    "inputs": {
+      "text": [
+        "43",
+        0
+      ],
+      "prepend_text": "full body, ",
+      "append_text": ", 1girl,(masterpiece), (RAW_photo, best_quality),looking at viewer,photo-realistic),",
+      "replace_find_mode": "regular expression (regex)",
+      "replace_find": "<TAGS>|</TAGS>",
+      "replace_with": ""
+    },
+    "class_type": "TextTransformer",
+    "_meta": {
+      "title": "📝 Text Transformer 📝"
+    }
+  },
+  "18": {
+    "inputs": {
+      "text": [
+        "83",
+        0
+      ],
+      "prepend_text": "Extract the booru tags from this text in detail but do not extract text information, such as the artist. Colors and shapes are importants, return a line with the tags in lowercase letters and separated by commas in the following format: <TAGS>tag1, tag2, tag3</TAGS>.\n\nExample:\nInput: \"A beautiful scenery with mountains and a light blue river.\"\nOutput: <TAGS>scenery, mountains, light blue river</TAGS>\n\nInput: \"A portrait of a woman with a red dress and a hat.\"\nOutput: <TAGS>portrait, woman, red dress, hat</TAGS>\n\nNow, extract the tags from the following text: \"",
+      "append_text": "\"",
+      "replace_find_mode": "normal",
+      "replace_find": "",
+      "replace_with": ""
+    },
+    "class_type": "TextTransformer",
+    "_meta": {
+      "title": "📝 Text Transformer 📝"
+    }
+  },
+  "35": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "41": {
+    "inputs": {
+      "model": "moondream:1.8b (Q4, 1.7GB)",
+      "custom_model": "",
+      "api_host": "http://localhost:11434",
+      "timeout": 300,
+      "temperature": 0.2,
+      "seed_number": 42,
+      "max_tokens": 200,
+      "keep_model_alive": -1,
+      "system_context": "",
+      "prompt": "describe the image",
+      "image": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "OllamaImageDescriber",
+    "_meta": {
+      "title": "🦙 Ollama Image Describer 🦙"
+    }
+  },
+  "43": {
+    "inputs": {
+      "model": "qwen2:1.5b (Q4_0, 935MB)",
+      "custom_model": "",
+      "api_host": "http://localhost:11434",
+      "timeout": 300,
+      "temperature": 0.2,
+      "seed_number": 42,
+      "max_tokens": 200,
+      "keep_model_alive": -1,
+      "system_context": "Your job is to generate prompts to be used in stable diffusion/midjourney, you will receive a text and you need to extract the most important information/characteristics from this text and transform this into tags in booru format.",
+      "prompt": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "OllamaTextDescriber",
+    "_meta": {
+      "title": "🦙 Ollama Text Describer 🦙"
+    }
+  },
+  "47": {
+    "inputs": {
+      "preset": "PLUS (high strength)",
+      "model": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "IPAdapterUnifiedLoader",
+    "_meta": {
+      "title": "IPAdapter Unified Loader"
+    }
+  },
+  "50": {
+    "inputs": {
+      "ckpt_name": "cyberrealistic_v42.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "53": {
+    "inputs": {
+      "image": "pasted/image (412).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "55": {
+    "inputs": {
+      "preset": "PLUS (high strength)",
+      "model": [
+        "143",
+        0
+      ]
+    },
+    "class_type": "IPAdapterUnifiedLoader",
+    "_meta": {
+      "title": "IPAdapter Unified Loader"
+    }
+  },
+  "56": {
+    "inputs": {
+      "seed": 522960048636032,
+      "steps": 30,
+      "cfg": 3,
+      "sampler_name": "dpmpp_2m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "160",
+        0
+      ],
+      "positive": [
+        "61",
+        0
+      ],
+      "negative": [
+        "61",
+        1
+      ],
+      "latent_image": [
+        "135",
+        5
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "58": {
+    "inputs": {
+      "text": [
+        "15",
+        0
+      ],
+      "clip": [
+        "50",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "59": {
+    "inputs": {
+      "text": "text, watermark, pocket, shirt pocket",
+      "clip": [
+        "50",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "61": {
+    "inputs": {
+      "strength": 1,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "58",
+        0
+      ],
+      "negative": [
+        "59",
+        0
+      ],
+      "control_net": [
+        "63",
+        0
+      ],
+      "image": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet (Advanced)"
+    }
+  },
+  "62": {
+    "inputs": {
+      "image": "pasted/image (411).png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "63": {
+    "inputs": {
+      "control_net_name": "control_v11p_sd15_openpose.pth"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "64": {
+    "inputs": {
+      "samples": [
+        "56",
+        0
+      ],
+      "vae": [
+        "50",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "65": {
+    "inputs": {
+      "images": [
+        "146",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "77": {
+    "inputs": {
+      "preprocessor": "OpenposePreprocessor",
+      "resolution": 512,
+      "image": [
+        "62",
+        0
+      ]
+    },
+    "class_type": "AIO_Preprocessor",
+    "_meta": {
+      "title": "AIO Aux Preprocessor"
+    }
+  },
+  "83": {
+    "inputs": {
+      "text": [
+        "10",
+        0
+      ],
+      "prepend_text": "\\nwearing on top:\n",
+      "append_text": [
+        "84",
+        0
+      ],
+      "replace_find_mode": "normal",
+      "replace_find": "",
+      "replace_with": ""
+    },
+    "class_type": "TextTransformer",
+    "_meta": {
+      "title": "📝 Text Transformer 📝"
+    }
+  },
+  "84": {
+    "inputs": {
+      "text": [
+        "41",
+        0
+      ],
+      "prepend_text": "\\nwearing on the bottom:\n",
+      "append_text": [
+        "154",
+        0
+      ],
+      "replace_find_mode": "normal",
+      "replace_find": "",
+      "replace_with": ""
+    },
+    "class_type": "TextTransformer",
+    "_meta": {
+      "title": "📝 Text Transformer 📝"
+    }
+  },
+  "121": {
+    "inputs": {
+      "prompt": "tshirt",
+      "threshold": 0.3,
+      "sam_model": [
+        "122",
+        0
+      ],
+      "grounding_dino_model": [
+        "123",
+        0
+      ],
+      "image": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "122": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "Prefer GPU"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "123": {
+    "inputs": {
+      "model_name": "GroundingDINO_SwinT_OGC (694MB)"
+    },
+    "class_type": "GroundingDinoModelLoader (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoModelLoader (segment anything)"
+    }
+  },
+  "126": {
+    "inputs": {
+      "prompt": "pants",
+      "threshold": 0.3,
+      "sam_model": [
+        "122",
+        0
+      ],
+      "grounding_dino_model": [
+        "123",
+        0
+      ],
+      "image": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "GroundingDinoSAMSegment (segment anything)",
+    "_meta": {
+      "title": "GroundingDinoSAMSegment (segment anything)"
+    }
+  },
+  "129": {
+    "inputs": {
+      "dilation": 80,
+      "mask": [
+        "126",
+        1
+      ]
+    },
+    "class_type": "ImpactDilateMask",
+    "_meta": {
+      "title": "Dilate Mask"
+    }
+  },
+  "131": {
+    "inputs": {
+      "dilation": 80,
+      "mask": [
+        "121",
+        1
+      ]
+    },
+    "class_type": "ImpactDilateMask",
+    "_meta": {
+      "title": "Dilate Mask"
+    }
+  },
+  "135": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "aspect_ratio": "SD1.5 - 2:3 portrait 512x768",
+      "swap_dimensions": "Off",
+      "upscale_factor": 1,
+      "prescale_factor": 1,
+      "batch_size": 2
+    },
+    "class_type": "CR Aspect Ratio",
+    "_meta": {
+      "title": "🔳 CR Aspect Ratio"
+    }
+  },
+  "141": {
+    "inputs": {
+      "interpolation": "LANCZOS",
+      "crop_position": "center",
+      "sharpening": 0,
+      "image": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "PrepImageForClipVision",
+    "_meta": {
+      "title": "Prep Image For ClipVision"
+    }
+  },
+  "142": {
+    "inputs": {
+      "interpolation": "LANCZOS",
+      "crop_position": "center",
+      "sharpening": 0,
+      "image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "PrepImageForClipVision",
+    "_meta": {
+      "title": "Prep Image For ClipVision"
+    }
+  },
+  "143": {
+    "inputs": {
+      "weight": 2,
+      "weight_type": "strong style transfer",
+      "combine_embeds": "concat",
+      "start_at": 0,
+      "end_at": 1,
+      "embeds_scaling": "V only",
+      "model": [
+        "47",
+        0
+      ],
+      "ipadapter": [
+        "47",
+        1
+      ],
+      "image": [
+        "142",
+        0
+      ],
+      "attn_mask": [
+        "131",
+        0
+      ]
+    },
+    "class_type": "IPAdapterAdvanced",
+    "_meta": {
+      "title": "IPAdapter Advanced"
+    }
+  },
+  "144": {
+    "inputs": {
+      "weight": 2,
+      "weight_type": "strong style transfer",
+      "combine_embeds": "concat",
+      "start_at": 0,
+      "end_at": 1,
+      "embeds_scaling": "V only",
+      "model": [
+        "55",
+        0
+      ],
+      "ipadapter": [
+        "55",
+        1
+      ],
+      "image": [
+        "141",
+        0
+      ],
+      "attn_mask": [
+        "129",
+        0
+      ]
+    },
+    "class_type": "IPAdapterAdvanced",
+    "_meta": {
+      "title": "IPAdapter Advanced"
+    }
+  },
+  "146": {
+    "inputs": {
+      "enabled": true,
+      "swap_model": "inswapper_128.onnx",
+      "facedetection": "YOLOv5n",
+      "face_restore_model": "codeformer-v0.1.0.pth",
+      "face_restore_visibility": 1,
+      "codeformer_weight": 0.5,
+      "detect_gender_input": "no",
+      "detect_gender_source": "no",
+      "input_faces_index": "0",
+      "source_faces_index": "0",
+      "console_log_level": 1,
+      "input_image": [
+        "64",
+        0
+      ],
+      "source_image": [
+        "147",
+        0
+      ]
+    },
+    "class_type": "ReActorFaceSwap",
+    "_meta": {
+      "title": "ReActor 🌌 Fast Face Swap"
+    }
+  },
+  "147": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "150": {
+    "inputs": {
+      "text": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "151": {
+    "inputs": {
+      "text": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "152": {
+    "inputs": {
+      "model": "moondream:1.8b (Q4, 1.7GB)",
+      "custom_model": "",
+      "api_host": "http://localhost:11434",
+      "timeout": 300,
+      "temperature": 0.2,
+      "seed_number": 42,
+      "max_tokens": 200,
+      "keep_model_alive": -1,
+      "system_context": "",
+      "prompt": "describe the main characteristics of the face in this image, color, hair...",
+      "image": [
+        "147",
+        0
+      ]
+    },
+    "class_type": "OllamaImageDescriber",
+    "_meta": {
+      "title": "🦙 Ollama Image Describer 🦙"
+    }
+  },
+  "153": {
+    "inputs": {
+      "text": [
+        "152",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "154": {
+    "inputs": {
+      "text": [
+        "152",
+        0
+      ],
+      "prepend_text": "\\nface description:\n",
+      "append_text": "",
+      "replace_find_mode": "normal",
+      "replace_find": "",
+      "replace_with": ""
+    },
+    "class_type": "TextTransformer",
+    "_meta": {
+      "title": "📝 Text Transformer 📝"
+    }
+  },
+  "155": {
+    "inputs": {
+      "text": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "160": {
+    "inputs": {
+      "lora_name": "weight_slider-LECO-v1.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "144",
+        0
+      ],
+      "clip": [
+        "50",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  }
+}
